@@ -4,56 +4,175 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-    --radius: 0.5rem;
+    --background: 215 20% 95%; /* #eff2f6 */
+    --foreground: 220 20% 16%; /* #21262d */
+    --card: 215 20% 95%;
+    --card-foreground: 220 20% 16%;
+    --popover: 215 20% 95%;
+    --popover-foreground: 220 20% 16%;
+    --primary: 24 95% 53%; /* Tactical Orange #f97316 */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 215 15% 88%;
+    --secondary-foreground: 220 20% 16%;
+    --muted: 215 15% 90%;
+    --muted-foreground: 220 10% 46%;
+    --accent: 215 15% 88%;
+    --accent-foreground: 220 20% 16%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 215 15% 85%;
+    --input: 215 15% 90%;
+    --ring: 24 95% 53%;
+    --radius: 0.75rem;
+
+    /* Skeuomorphic Light Mode Shadows */
+    --skeuo-light: #ffffff;
+    --skeuo-dark: #cdd5e0;
+    --skeuo-raised: 4px 4px 10px #cdd5e0, -4px -4px 10px #ffffff;
+    --skeuo-raised-sm: 2px 2px 5px #cdd5e0, -2px -2px 5px #ffffff;
+    --skeuo-inset: inset 3px 3px 6px #cdd5e0, inset -3px -3px 6px #ffffff;
+    --skeuo-inset-sm: inset 1.5px 1.5px 3px #cdd5e0, inset -1.5px -1.5px 3px #ffffff;
   }
- 
+
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --background: 220 18% 12%; /* #191c22 */
+    --foreground: 215 15% 92%; /* #e6eaf0 */
+    --card: 220 18% 14%; /* #1e222a */
+    --card-foreground: 215 15% 92%;
+    --popover: 220 18% 14%;
+    --popover-foreground: 215 15% 92%;
+    --primary: 24 95% 53%; /* Tactical Orange #f97316 */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 16% 18%;
+    --secondary-foreground: 215 15% 92%;
+    --muted: 220 16% 16%;
+    --muted-foreground: 220 10% 55%;
+    --accent: 220 16% 18%;
+    --accent-foreground: 215 15% 92%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 14% 20%;
+    --input: 220 14% 16%;
+    --ring: 24 95% 53%;
+    --radius: 0.75rem;
+
+    /* Skeuomorphic Dark Mode Shadows */
+    --skeuo-light: #282e39;
+    --skeuo-dark: #0f1216;
+    --skeuo-raised: 5px 5px 12px #0f1216, -5px -5px 12px #282e39;
+    --skeuo-raised-sm: 2.5px 2.5px 6px #0f1216, -2.5px -2.5px 6px #282e39;
+    --skeuo-inset: inset 3px 3px 6px #0f1216, inset -3px -3px 6px #282e39;
+    --skeuo-inset-sm: inset 1.5px 1.5px 3px #0f1216, inset -1.5px -1.5px 3px #282e39;
   }
 }
- 
+
 @layer base {
   * {
     @apply border-border;
   }
   body {
     @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+}
+
+/* Minimalist Tactile Skeuomorphism Classes */
+.skeuo-raised {
+  background: var(--card);
+  box-shadow: var(--skeuo-raised);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.skeuo-raised-sm {
+  background: var(--card);
+  box-shadow: var(--skeuo-raised-sm);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.skeuo-inset {
+  background: var(--card);
+  box-shadow: var(--skeuo-inset);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.skeuo-inset-sm {
+  background: var(--card);
+  box-shadow: var(--skeuo-inset-sm);
+}
+
+/* Physical Mechanical Push Button */
+.skeuo-btn {
+  background: var(--card);
+  box-shadow: var(--skeuo-raised-sm);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  transition: all 0.12s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.skeuo-btn:hover {
+  filter: brightness(1.02);
+}
+
+.skeuo-btn:active,
+.skeuo-btn-active {
+  box-shadow: var(--skeuo-inset-sm) !important;
+  transform: translateY(1px);
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Tactile Active Indicator LED */
+.skeuo-led {
+  width: 7px;
+  height: 7px;
+  border-radius: 9999px;
+  display: inline-block;
+  box-shadow: 0 0 8px currentColor;
+}
+
+/* Industrial Precision Bezel */
+.skeuo-bezel {
+  border: 1px solid var(--border);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Digital Monospace LCD Display */
+.mono-lcd {
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: -0.03em;
+}
+
+/* Custom Sleek Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(140, 150, 165, 0.25);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(140, 150, 165, 0.45);
+}
+
+/* Print Styles */
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  header, nav, .no-print, button, input {
+    display: none !important;
+  }
+  .skeuo-raised, .skeuo-inset {
+    box-shadow: none !important;
+    border: 1px solid #ccc !important;
   }
 }

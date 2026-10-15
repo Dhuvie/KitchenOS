@@ -16,6 +16,10 @@ module.exports = {
       },
     },
     extend: {
+      fontFamily: {
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+        mono: ['"JetBrains Mono"', 'monospace'],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -56,6 +60,25 @@ module.exports = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      keyframes: {
+        shimmer: {
+          '0%': { backgroundPosition: '-200% 0' },
+          '100%': { backgroundPosition: '200% 0' },
+        },
+        float: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-6px)' },
+        },
+        glow: {
+          '0%, 100%': { opacity: 0.4 },
+          '50%': { opacity: 0.8 },
+        }
+      },
+      animation: {
+        shimmer: 'shimmer 3s ease-in-out infinite',
+        float: 'float 4s ease-in-out infinite',
+        glow: 'glow 3s ease-in-out infinite',
+      }
     },
   },
   plugins: [require("tailwindcss-animate")],

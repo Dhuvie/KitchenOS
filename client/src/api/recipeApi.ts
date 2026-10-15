@@ -13,17 +13,32 @@ export async function streamRecipe(
   signal: AbortSignal,
   onBlock: (block: any) => void
 ): Promise<void> {
-  const response = await fetch('/api/recipe/stream', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({ prompt, history }),
-    signal
-  });
+  const clientApiKey = localStorage.getItem('gravitas_gemini_key') || undefined;
+
+  let response: Response;
+  try {
+    response = await fetch('/api/recipe/stream', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ prompt, history, apiKey: clientApiKey }),
+      signal
+    });
+  } catch (err: any) {
+    if (err.name === 'AbortError') throw err;
+    throw new ApiError('SERVER_UNREACHABLE', 'Unable to connect to the culinary backend server.');
+  }
 
   if (!response.ok) {
-    throw new ApiError('PROVIDER_ERROR', 'Provider error');
+    let errorCode = 'PROVIDER_ERROR';
+    try {
+      const errJson = await response.json();
+      if (errJson?.code) errorCode = errJson.code;
+    } catch {
+      // not json
+    }
+    throw new ApiError(errorCode, `Server returned status ${response.status}`);
   }
 
   const reader = response.body?.getReader();

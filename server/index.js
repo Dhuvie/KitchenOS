@@ -7,17 +7,15 @@ const recipeRoutes = require('./routes/recipe');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-// Allow CORS for local development (will be ignored in production if served together)
-app.use(cors({
-  origin: process.env.NODE_ENV === 'production' ? false : 'http://localhost:5173'
-}));
+// Enable CORS for all origins in development and deployment
+app.use(cors());
 
 app.use(express.json());
 
 app.use('/api/recipe', recipeRoutes);
 
-// Serve Frontend in Production
-if (process.env.NODE_ENV === 'production') {
+// Serve Frontend in Production (non-Vercel standalone Node environments)
+if (process.env.NODE_ENV === 'production' && !process.env.VERCEL) {
   // Point to the built Vite files
   app.use(express.static(path.join(__dirname, '../client/dist')));
   
@@ -27,6 +25,11 @@ if (process.env.NODE_ENV === 'production') {
   });
 }
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+// Start listening only when executed directly (not in Vercel serverless environment)
+if (!process.env.VERCEL && require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+  });
+}
+
+module.exports = app;
