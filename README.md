@@ -20,7 +20,7 @@
 ## 🖥️ System Interface Overview
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Dhuvie/recipe-ai/main/docs/images/kitchen-os-recipe-view.png" alt="KITCHEN.OS Terminal Studio" width="100%" />
+  <img src="recipe-ai\docs\images\kitchen-os-recipe-view.png" width="100%" />
 </p>
 <p align="center">
   <em>KITCHEN.OS in action: Full-bleed recipe studio canvas with interactive mise-en-place checklist, digital step timers, and real-time portion scaling.</em>
