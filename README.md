@@ -20,7 +20,7 @@
 ## 🖥️ System Interface Overview
 
 <p align="center">
-  <img src="./docs/images/kitchen-os-recipe-view.png" alt="KITCHEN.OS Terminal Studio" width="100%" />
+  <img src="https://raw.githubusercontent.com/Dhuvie/recipe-ai/main/docs/images/kitchen-os-recipe-view.png" alt="KITCHEN.OS Terminal Studio" width="100%" />
 </p>
 <p align="center">
   <em>KITCHEN.OS in action: Full-bleed recipe studio canvas with interactive mise-en-place checklist, digital step timers, and real-time portion scaling.</em>
@@ -32,7 +32,7 @@
 
 | Pan-Seared Chilean Sea Bass | Wild Forest Mushroom Risotto | Artisanal Provision Flatlay |
 | :---: | :---: | :---: |
-| ![Chilean Sea Bass](./docs/images/dish-seabass.jpg) | ![Mushroom Risotto](./docs/images/dish-risotto.jpg) | ![Artisanal Flatlay](./docs/images/dish-ingredients.jpg) |
+| <img src="https://raw.githubusercontent.com/Dhuvie/recipe-ai/main/docs/images/dish-seabass.jpg" alt="Chilean Sea Bass" width="280" /> | <img src="https://raw.githubusercontent.com/Dhuvie/recipe-ai/main/docs/images/dish-risotto.jpg" alt="Mushroom Risotto" width="280" /> | <img src="https://raw.githubusercontent.com/Dhuvie/recipe-ai/main/docs/images/dish-ingredients.jpg" alt="Artisanal Flatlay" width="280" /> |
 | *Saffron Emulsion & Charred Asparagus* | *Aged Parmigiano-Reggiano & Porcini Broth* | *Mise-en-place & Provision Extraction* |
 
 ---
