@@ -12,6 +12,11 @@ app.use(cors());
 
 app.use(express.json());
 
+// Service health check endpoint
+app.get(['/api/health', '/health'], (req, res) => {
+  res.json({ status: 'ok', service: 'kitchen-os-server' });
+});
+
 app.use('/api/recipe', recipeRoutes);
 
 // Serve Frontend in Production (non-Vercel standalone Node environments)

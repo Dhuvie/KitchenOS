@@ -124,7 +124,7 @@ Navigate to `http://localhost:5173` in your browser.
 2. Import the repository in [Vercel](https://vercel.com/new).
 3. (Optional) In Vercel Project Settings > **Environment Variables**, add:
    * `GEMINI_API_KEY`: Your Google Gemini API key.
-4. Click **Deploy**. Vercel will automatically build the Vite client and deploy the `/api` serverless streaming proxy using [`vercel.json`](./vercel.json).
+4. Click **Deploy**. Vercel will automatically build and route both the `client` (Vite) and `server` (Express) services defined in [`vercel.json`](./vercel.json).
 
 ---
 
